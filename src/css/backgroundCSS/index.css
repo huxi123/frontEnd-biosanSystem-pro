@@ -1,0 +1,36 @@
+.schedule label{
+    margin-right: 56px !important;
+}
+.bg_oper{
+    margin-top: 10px;
+    padding:5px 0px;
+    border-bottom: 3px solid rgba(4, 94, 165, 1);
+}
+.hosDetail{
+    margin-left:15px;
+    height: 38px;
+    line-height: 38px;
+}
+.hosDetail>div:last-child{
+    margin-left: -50px;
+}
+.area-head{
+    text-align: center;
+    height:30px;
+    line-height: 30px;
+    border-bottom: 1px solid rgba(4, 94, 165, 1);
+}
+.area-tab{
+    height:30px;
+    line-height: 30px;
+    border-bottom: 1px solid rgba(4, 94, 165, 1);
+}
+.area-tab > div:first-child{
+    text-align: center;
+    margin-right: 15px;
+    border-right: 1px solid rgba(4, 94, 165, 1);
+}
+.areaLeft{
+    border-right: 1px solid rgba(4, 94, 165, 1);
+    overflow-y: scroll;
+}
