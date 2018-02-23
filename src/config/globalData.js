@@ -434,3 +434,6 @@ export const visibleData = {
         transferVisible:false
     }
 }
+
+//api地址
+export const target  = "http://localhost:8090/";

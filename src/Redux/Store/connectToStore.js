@@ -34,7 +34,7 @@ function deconstruct(state,waitInjectionStateList,UiComponent){
  */
 export default function connectToStore(waitInjectionActionList,waitInjectionStateList,UiComponent){
     
-    let injectionAction = Tool.redux.filterAction(waitInjectionActionList,IndexActions,dossierActions,patientDetailsPageActions,patientDetailsPageActionsV2,taskManageActions);
+    let injectionAction = Tool.redux.filterAction(waitInjectionActionList,IndexActions);
 
 
 

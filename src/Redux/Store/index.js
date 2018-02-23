@@ -13,8 +13,8 @@ import thunk from 'redux-thunk';
 import silplify from 'simplify-action-middleware';
 
 import {Tool} from '../../config/tools';
-import {persistStore, autoRehydrate} from 'redux-persist';
-import { asyncSessionStorage } from 'redux-persist/storages';
+import {persistStore, autoRehydrate,storages} from 'redux-persist';
+const {asyncSessionStorage}  = storages;
 
 /**
  * Logger Middleware
@@ -31,17 +31,17 @@ const reducers=Tool.redux.combineReducer(indexReducer);
 
 var store = createStore(
     combineReducers(reducers),
-    compose(applyMiddleware(thunk,silplify({successAlert:showSuccess,errorAlert:showError,sessionTimeOut:Tool.sessionTimeOut.logOut})),autoRehydrate())
+    compose(applyMiddleware(thunk))
 );
-
+// ,silplify({successAlert:showSuccess,errorAlert:showError,sessionTimeOut:Tool.sessionTimeOut.logOut}),autoRehydrate()
 /**
  * synchronize to local
  * 
  * set Storage Engines and whitelist
  */
 
-persistStore(store,{whitelist:['sendApplyConsulationData','linkBarData','patiendIdData','level2ListData','searchArchivesData'],storage: asyncSessionStorage}, () => {
-  // console.log('sendApplyConsulationData&linkBarData  has persist !');
-});
+// persistStore(store,{whitelist:['sendApplyConsulationData','linkBarData','patiendIdData','level2ListData','searchArchivesData'],storage: asyncSessionStorage}, () => {
+//   // console.log('sendApplyConsulationData&linkBarData  has persist !');
+// });
 
 export default store;

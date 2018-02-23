@@ -1,11 +1,11 @@
 var path = require('path');
 var webpack = require('webpack');
 var ExtractTextPlugin = require('extract-text-webpack-plugin'); //css单独打包
-var HtmlWebpackPlugin = require('html-webpack-plugin'); //生成html
+var htmlWebpackPlugin = require('html-webpack-plugin'); //生成html
 
 //定义地址
 var ROOT_PATH = path.resolve(__dirname);
-var APP_PATH = path.resolve(ROOT_PATH, 'pcsrc'); //__dirname 中的src目录，以此类推
+var APP_PATH = path.resolve(ROOT_PATH, 'src'); //__dirname 中的src目录，以此类推
 var APP_FILE = path.resolve(APP_PATH, 'app'); //根目录文件app.jsx地址
 var BUILD_PATH = path.resolve(ROOT_PATH, '/pcmain/dist'); //发布文件所存放的目录
 
@@ -26,7 +26,7 @@ module.exports = {
     },
     module: {
         loaders: [{
-            test: /\.js$/,
+            test: /\.jsx?$/,
             exclude: /^node_modules$/,
             loaders: ['react-hot', 'babel'],
             include: [APP_PATH]
@@ -60,6 +60,9 @@ module.exports = {
             exclude: /^node_modules$/,
             loaders: ['react-hot', 'jsx', 'babel'],
             include: [APP_PATH]
+        },{
+            test: /\.html$/,
+            loader: 'html-loader'
         }]
     },
     plugins: [
@@ -70,9 +73,10 @@ module.exports = {
                 NODE_ENV: JSON.stringify('development') //定义编译环境production
             }
         }),
-        new HtmlWebpackPlugin({  //根据模板插入css/js等生成最终HTML
-            filename: '../index_pc.html', //生成的html存放路径，相对于 path
-            template: './pcsrc/template/index_pc.html', //html模板路径
+        new htmlWebpackPlugin({  //根据模板插入css/js等生成最终HTML
+            filename: './index.html', //生成的html存放路径，相对于 path
+            template: './src/template/index.html', //html模板路径
+            title:'BioSan System(front) Pro',
             hash: false,
         }),
         new webpack.HotModuleReplacementPlugin(),

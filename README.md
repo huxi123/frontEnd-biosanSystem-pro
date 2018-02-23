@@ -2,7 +2,7 @@
 
 ## 技术栈：
 
-react + redux + immutable + less + scss + ES6/7 + webpack + fetch + react-router按需加载 + react-transform热替换 + webpack-dev-server + http-proxy-middleware
+react + redux + immutable + less + scss + ES6/7 + webpack + fetch + react-router按需加载 + react-hot-loader热替换 + webpack-dev-server + http-proxy-middleware
 
 
 ## 下载
@@ -20,21 +20,13 @@ react + redux + immutable + less + scss + ES6/7 + webpack + fetch + react-router
 ```
 
 
-## 2016年11月14日
-```
-新增热替换功能
-```
-## 2016年11月16日
-```
-添加immutable.js的使用，减少组件不必要的更新，优化性能
-```
 ## 2017年1月10日
 ```
 1、修复热替换无法正常使用的问题，使用 react-hot-loader 代替 react-transform
 2、热替换模式下使用 http-proxy-middleware 反向代理解决跨域问题
 ```
 
-# 个人总结
+# React介绍
 
 ##做React需要会什么？
 react的功能其实很单一，主要负责渲染的功能，现有的框架，比如angular是一个大而全的框架，用了angular几乎就不需要用其他工具辅助配合，但是react不一样，他只负责ui渲染，想要做好一个项目，往往需要其他库和工具的配合，比如用redux来管理数据，react-router管理路由，react已经全面拥抱es6，所以es6也得掌握，webpack就算是不会配置也要会用，要想提高性能，需要按需加载，immutable.js也得用上，还有单元测试。。。。

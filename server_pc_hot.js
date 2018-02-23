@@ -22,7 +22,7 @@ app.use(require('webpack-dev-middleware')(compiler, {
 app.use(require('webpack-hot-middleware')(compiler));
 //将其他路由，全部返回login_pc.html
 app.get('*', function(req, res) {
-	res.sendFile(__dirname + '/index_pc.html')
+	res.sendFile(__dirname + '/index.html')
 });
 
 app.listen(3000, function() {

@@ -1,32 +1,10 @@
+import React from 'react';
 import {Link } from 'react-router';
 import template from './common/pureToContainer.js';
 import connectToStore from '../Redux/Store/connectToStore';
 import {Modal,Menu,Icon,Spin} from 'monkeyui';
 const SubMenu = Menu.SubMenu;
 
-const hos_title={
-  color:'#fff',
-  padding:'10px',
-  fontSize:'13px',
-  textAlign:'left',
-  paddingLeft:'30px'
-}
-
-const doc_name={
-  color:'#fff',
-  padding:'10px',
-  fontSize:'17px',
-  textAlign:'left',
-  paddingLeft:'30px'
-}
-
-const _icon={
-  width:'25px',
-  height:'25px',
-  position: 'relative',
-  top: '6px',
-  marginRight: '5px'
-}
 
 const iconStyle={
   width:'18px',
