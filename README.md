@@ -2,8 +2,11 @@
 
 ## 技术栈：
 
-react + redux + immutable + less + scss + ES6/7 + webpack + fetch + react-router按需加载 + react-hot-loader热替换 + webpack-dev-server + http-proxy-middleware
+react + redux + immutable + less + scss + ES6/7 + webpack + fetch + react-router按需加载 + react-hot-loader热替换 + webpack-dev-server + http-proxy-middleware + webpack-dev-middleware
 
+###tips
+webpack-dev-middleware requires Node v6 or higher
+    The publicPath property is required, whereas all other options are optional
 
 ## 下载
 

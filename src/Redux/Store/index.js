@@ -10,8 +10,7 @@ import * as indexReducer from '../Reducer/index.js';
  * handle async action middleware
  */
 import thunk from 'redux-thunk';
-import silplify from 'simplify-action-middleware';
-
+import simplify from 'simplify-action-middleware';
 import {Tool} from '../../config/tools';
 import {persistStore, autoRehydrate,storages} from 'redux-persist';
 const {asyncSessionStorage}  = storages;
@@ -31,9 +30,9 @@ const reducers=Tool.redux.combineReducer(indexReducer);
 
 var store = createStore(
     combineReducers(reducers),
-    compose(applyMiddleware(thunk))
+    compose(applyMiddleware(thunk,simplify({successAlert:showSuccess,errorAlert:showError,sessionTimeOut:Tool.sessionTimeOut.logOut})))
 );
-// ,silplify({successAlert:showSuccess,errorAlert:showError,sessionTimeOut:Tool.sessionTimeOut.logOut}),autoRehydrate()
+// ,autoRehydrate()
 /**
  * synchronize to local
  * 

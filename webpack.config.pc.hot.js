@@ -4,10 +4,11 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin'); //css单独打�
 var htmlWebpackPlugin = require('html-webpack-plugin'); //生成html
 
 //定义地址
-var ROOT_PATH = path.resolve(__dirname);
-var APP_PATH = path.resolve(ROOT_PATH, 'src'); //__dirname 中的src目录，以此类推
-var APP_FILE = path.resolve(APP_PATH, 'app'); //根目录文件app.jsx地址
-var BUILD_PATH = path.resolve(ROOT_PATH, '/pcmain/dist'); //发布文件所存放的目录
+const publicPath = '/';
+const ROOT_PATH = path.resolve(__dirname);
+const APP_PATH = path.resolve(ROOT_PATH, 'src'); 
+const entryFile = path.resolve(APP_PATH, 'app'); 
+const BUILD_PATH = path.resolve(ROOT_PATH, publicPath); 
 
 
 module.exports = {
@@ -15,11 +16,11 @@ module.exports = {
     entry: {
         app: [
             'webpack-hot-middleware/client',
-            APP_FILE
+            entryFile
         ]
     },
     output: {
-        publicPath: '/pcmain/dist/', //编译好的文件，在服务器的路径,这是静态资源引用路径
+        publicPath: publicPath, //cdn or futher
         path: BUILD_PATH, //发布文件地址
         filename: '[name].js', //编译后的文件名字
         chunkFilename: '[name].[chunkhash:5].min.js',
@@ -60,9 +61,6 @@ module.exports = {
             exclude: /^node_modules$/,
             loaders: ['react-hot', 'jsx', 'babel'],
             include: [APP_PATH]
-        },{
-            test: /\.html$/,
-            loader: 'html-loader'
         }]
     },
     plugins: [
@@ -73,11 +71,12 @@ module.exports = {
                 NODE_ENV: JSON.stringify('development') //定义编译环境production
             }
         }),
-        new htmlWebpackPlugin({  //根据模板插入css/js等生成最终HTML
-            filename: './index.html', //生成的html存放路径，相对于 path
-            template: './src/template/index.html', //html模板路径
+        new htmlWebpackPlugin({ 
+            filename: './index.html', 
+            template: './src/template/index.html', 
             title:'BioSan System(front) Pro',
-            hash: false,
+            favicon:'./src/images/biosan.ico',
+            hash: false
         }),
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NoErrorsPlugin()
